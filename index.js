@@ -108,7 +108,9 @@ class ViewMoreText extends React.Component {
       if (numberOfLines > 0) {
         return (this.props.renderViewMore || this.renderViewMore)(this.onPressMore);
       }
-      return (this.props.renderViewLess || this.renderViewLess)(this.onPressLess);
+        if(this.props.status !== "none"){
+         return (this.props.renderViewLess || this.renderViewLess)(this.onPressLess);
+      }
     }
     return null;
   }
@@ -156,6 +158,7 @@ ViewMoreText.defaultProps = {
   afterCollapse: () => {},
   afterExpand: () => {},
   textStyle: {},
+  status: PropTypes.string,
 };
 
 export default ViewMoreText;
